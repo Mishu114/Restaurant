@@ -19,9 +19,9 @@ const Pizza = ({ visible }) => {
   });
 
   return (
-    <Float speed={2} rotationIntensity={0.5} floatIntensity={0.5}>
-      <group ref={meshRef} position={[3, 0, 0]}>
-        <primitive object={scene.clone()} scale={[2, 2, 2]} />
+    <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
+      <group ref={meshRef} position={[0, 0, 4]} rotation={[0.5,0,0]}>
+        <primitive object={scene.clone()} scale={[7, 7, 7]} />
       </group>
     </Float>
   );

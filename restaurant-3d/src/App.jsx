@@ -1,5 +1,4 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Canvas } from '@react-three/fiber';
 import { useGLTF } from '@react-three/drei';
 
 import Navbar from './components/Navbar';
@@ -9,28 +8,8 @@ import AboutSection from './components/sections/AboutSection';
 import MenuSection from './components/sections/MenuSection';
 import ContactSection from './components/sections/ContactSection';
 
-import Pizza from './components/3d/Pizza';
-import Burger from './components/3d/Burger';
-import IceCream from './components/3d/IceCream';
-
 import { interpolateColors, getSectionBgColor } from './utils/colorUtils';
 import { pizzaMenuItems, burgerMenuItems, dessertMenuItems } from './utils/menuData';
-
-
-const Scene = ({ currentSection }) => {
-  return (
-    <>
-      <ambientLight intensity={0.8} />
-      <directionalLight position={[10, 10, 5]} intensity={1.5} />
-      <pointLight position={[-10, 5, -10]} intensity={0.8} color="#ffaa66" />
-      <spotLight position={[0, 15, 10]} angle={0.4} penumbra={1} intensity={1.2} castShadow />
-      
-      <Pizza visible={currentSection === 'pizza'} />
-      <Burger visible={currentSection === 'burger'} />
-      <IceCream visible={currentSection === 'dessert'} />
-    </>
-  );
-};
 
 export default function App() {
   const [currentSection, setCurrentSection] = useState('intro');
@@ -82,8 +61,6 @@ export default function App() {
       const section4 = windowHeight * 2.9;
       const section5 = windowHeight * 3.7;
       const section6 = windowHeight * 4.5;
-
-      console.log( scrollPosition, section1, section2, section3, section4, section5, section6 );
       
       let newColors = getSectionBgColor('intro');
       
@@ -153,15 +130,11 @@ export default function App() {
       {/* Navbar */}
       <Navbar />
 
-      {/* Fixed 3D Canvas Background */}
+      {/* Fixed Background Gradient */}
       <div className="fixed inset-0 z-0" style={{
         background: `linear-gradient(to bottom right, ${bgGradient.from}, ${bgGradient.to})`,
         transition: 'background 0.1s linear'
-      }}>
-        <Canvas camera={{ position: [0, 0, 10], fov: 50 }}>
-          <Scene currentSection={currentSection} />
-        </Canvas>
-      </div>
+      }} />
 
       {/* Scroll-controlled Video */}
       <div 
@@ -183,9 +156,9 @@ export default function App() {
         <HeroSection />
         <OffersSection />
         <AboutSection />
-        <MenuSection title="Pizza Menu" items={pizzaMenuItems} />
-        <MenuSection title="Burger Menu" items={burgerMenuItems} />
-        <MenuSection title="Desserts" items={dessertMenuItems} />
+        <MenuSection title="Pizza Menu" items={pizzaMenuItems} modelType="pizza" />
+        <MenuSection title="Burger Menu" items={burgerMenuItems} modelType="burger" />
+        <MenuSection title="Desserts" items={dessertMenuItems} modelType="dessert" />
         <ContactSection />
       </div>
 

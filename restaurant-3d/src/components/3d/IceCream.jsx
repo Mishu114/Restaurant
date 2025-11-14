@@ -19,9 +19,9 @@ const IceCream = ({ visible }) => {
   });
 
   return (
-    <Float speed={2} rotationIntensity={0.5} floatIntensity={0.5}>
-      <group ref={meshRef} position={[3, 0, 0]}>
-        <primitive object={scene.clone()} scale={[2, 2, 2]} />
+    <Float speed={2} rotationIntensity={0.1} floatIntensity={0.5}>
+      <group ref={meshRef} position={[0, -0.7, 7]}>
+        <primitive object={scene.clone()} scale={[5, 5, 5]} />
       </group>
     </Float>
   );

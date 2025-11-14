@@ -12,12 +12,12 @@ const Navbar = () => {
       const windowHeight = window.innerHeight;
       const scrollPosition = window.scrollY;
       
-      if (scrollPosition < windowHeight * 0.5) setActiveSection('intro');
-      else if (scrollPosition < windowHeight * 1.3) setActiveSection('offers');
-      else if (scrollPosition < windowHeight * 2.1) setActiveSection('about');
-      else if (scrollPosition < windowHeight * 2.9) setActiveSection('pizza');
-      else if (scrollPosition < windowHeight * 3.7) setActiveSection('burger');
-      else if (scrollPosition < windowHeight * 4.5) setActiveSection('dessert');
+      if (scrollPosition < windowHeight * 0.9) setActiveSection('intro');
+      else if (scrollPosition < windowHeight * 1.9) setActiveSection('offers');
+      else if (scrollPosition < windowHeight * 2.9) setActiveSection('about');
+      else if (scrollPosition < windowHeight * 3.9) setActiveSection('pizza');
+      else if (scrollPosition < windowHeight * 4.9) setActiveSection('burger');
+      else if (scrollPosition < windowHeight * 5.9) setActiveSection('dessert');
       else setActiveSection('contact');
     };
 
