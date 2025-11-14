@@ -21,7 +21,7 @@ const Burger = ({ visible }) => {
   return (
     <Float speed={2} rotationIntensity={0.5} floatIntensity={0.5}>
       <group ref={meshRef} position={[-3, -2, 0]}>
-        <primitive object={scene.clone()} scale={[2, 2, 2]} />
+        <primitive object={scene.clone()} scale={[3, 3, 3]} />
       </group>
     </Float>
   );

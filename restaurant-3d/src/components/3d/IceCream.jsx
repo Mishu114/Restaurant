@@ -20,7 +20,7 @@ const IceCream = ({ visible }) => {
 
   return (
     <Float speed={2} rotationIntensity={0.1} floatIntensity={0.5}>
-      <group ref={meshRef} position={[0, -0.7, 7]}>
+      <group ref={meshRef} position={[0, -0.7, 7]} rotation={[0,0,0.5]}>
         <primitive object={scene.clone()} scale={[5, 5, 5]} />
       </group>
     </Float>
