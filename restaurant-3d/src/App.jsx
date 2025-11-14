@@ -8,14 +8,12 @@ import AboutSection from './components/sections/AboutSection';
 import MenuSection from './components/sections/MenuSection';
 import ContactSection from './components/sections/ContactSection';
 
-import { interpolateColors, getSectionBgColor } from './utils/colorUtils';
 import { pizzaMenuItems, burgerMenuItems, dessertMenuItems } from './utils/menuData';
 
 export default function App() {
   const [currentSection, setCurrentSection] = useState('intro');
   const videoRef = useRef(null);
   const [videoOpacity, setVideoOpacity] = useState(1);
-  const [bgGradient, setBgGradient] = useState(getSectionBgColor('intro'));
 
   useEffect(() => {
     // Initialize video
@@ -24,119 +22,11 @@ export default function App() {
     }
   }, []);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const windowHeight = window.innerHeight;
-      
-      // Video scroll control - sync video time with scroll position
-      const videoEndPoint = windowHeight * 2.5;
-      if (videoRef.current && scrollPosition < videoEndPoint) {
-        const videoDuration = videoRef.current.duration || 10;
-        const scrollProgress = Math.min(scrollPosition / videoEndPoint, 1);
-        const targetTime = scrollProgress * videoDuration;
-        
-        if (Math.abs(videoRef.current.currentTime - targetTime) > 0.05) {
-          videoRef.current.currentTime = targetTime;
-        }
-      }
-      
-      // Video opacity control
-      if (scrollPosition < videoEndPoint) {
-        const fadeStart = windowHeight * 1.5;
-        if (scrollPosition < fadeStart) {
-          setVideoOpacity(1);
-        } else {
-          const fadeProgress = (scrollPosition - fadeStart) / (videoEndPoint - fadeStart);
-          setVideoOpacity(Math.max(0, 1 - fadeProgress));
-        }
-      } else {
-        setVideoOpacity(0);
-      }
-
-      console.log(scrollPosition)
-      
-      // Section transitions
-      const section1 = windowHeight * 0.5;
-      const section2 = windowHeight * 0.6;
-      const section3 = windowHeight * 1.6;
-      const section4 = windowHeight * 2.6;
-      const section5 = windowHeight * 3.6;
-      const section6 = windowHeight * 4.6;
-      
-      let newColors = getSectionBgColor('intro');
-      
-      if (scrollPosition < section1) {
-        newColors = getSectionBgColor('intro');
-        setCurrentSection('intro');
-      } else if (scrollPosition < section2) {
-        const progress = (scrollPosition - section1) / (section2 - section1);
-        newColors = interpolateColors(
-          getSectionBgColor('intro'),
-          getSectionBgColor('offers'),
-          progress
-        );
-        setCurrentSection('offers');
-      } else if (scrollPosition < section3) {
-        const progress = (scrollPosition - section2) / (section3 - section2);
-        newColors = interpolateColors(
-          getSectionBgColor('offers'),
-          getSectionBgColor('about'),
-          progress
-        );
-        setCurrentSection(progress > 0.1 ? 'about' : 'offers');
-      } else if (scrollPosition < section4) {
-        const progress = (scrollPosition - section3) / (section4 - section3);
-        newColors = interpolateColors(
-          getSectionBgColor('about'),
-          getSectionBgColor('pizza'),
-          progress
-        );
-        setCurrentSection(progress > 0.1 ? 'pizza' : 'about');
-      } else if (scrollPosition < section5) {
-        const progress = (scrollPosition - section4) / (section5 - section4);
-        newColors = interpolateColors(
-          getSectionBgColor('pizza'),
-          getSectionBgColor('burger'),
-          progress
-        );
-        setCurrentSection(progress > 0.1 ? 'burger' : 'pizza');
-      } else if (scrollPosition < section6) {
-        const progress = (scrollPosition - section5) / (section6 - section5);
-        newColors = interpolateColors(
-          getSectionBgColor('burger'),
-          getSectionBgColor('dessert'),
-          progress
-        );
-        setCurrentSection(progress > 0.1 ? 'dessert' : 'burger');
-      } else {
-        const progress = Math.min((scrollPosition - section6) / windowHeight, 1);
-        newColors = interpolateColors(
-          getSectionBgColor('dessert'),
-          getSectionBgColor('contact'),
-          progress
-        );
-        setCurrentSection(progress > 0.1 ? 'contact' : 'dessert');
-      }
-      
-      setBgGradient(newColors);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return (
     <div className="relative">
       {/* Navbar */}
       <Navbar />
-
-      {/* Fixed Background Gradient */}
-      <div className="fixed inset-0 z-0" style={{
-        background: `linear-gradient(to bottom right, ${bgGradient.from}, ${bgGradient.to})`,
-        transition: 'background 0.1s linear'
-      }} />
 
       {/* Scroll-controlled Video */}
       <div 
@@ -144,12 +34,12 @@ export default function App() {
         style={{ opacity: videoOpacity }}
       >
         <video
-          className="w-full h-full object-cover"
+                    className="w-full h-full object-cover"
           src="/video/hero_section_vid.mp4"
           muted
           playsInline
           preload="metadata"
-          autoPlay
+autoPlay
           loop={false}
         />
       </div>

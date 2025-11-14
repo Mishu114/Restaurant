@@ -18,8 +18,22 @@ const MenuSection = ({ title, items, modelType }) => {
     }
   };
 
+  // Set background color based on model type
+  const getBgColor = () => {
+    switch(modelType) {
+      case 'pizza':
+        return 'bg-gradient-to-br from-orange-600 to-red-700';
+      case 'burger':
+        return 'bg-gradient-to-br from-amber-700 to-orange-800';
+      case 'dessert':
+        return 'bg-gradient-to-br from-pink-500 to-purple-600';
+      default:
+        return 'bg-gradient-to-br from-gray-700 to-gray-900';
+    }
+  };
+
   return (
-    <section className="min-h-screen flex flex-col items-center justify-between pl-4 md:pl-20 pr-4 md:pr-20 relative">
+    <section className={`min-h-screen flex flex-col items-center justify-between pl-4 md:pl-20 pr-4 md:pr-20 relative ${getBgColor()} pt-[10vh]`}>
       {/* Menu Content */}
       <div className="text-white w-full z-10 items-center">
         <h2 className="text-4xl md:text-6xl font-bold mb-8 text-center">{title}</h2>
@@ -38,7 +52,7 @@ const MenuSection = ({ title, items, modelType }) => {
       </div>
 
       {/* 3D Model Canvas - Sticks to this section */}
-      <div className="hidden lg:block w-full h-full absolute right-0 top-[10vh] pointer-events-none">
+      <div className="hidden lg:block w-full h-full absolute right-0 top-0 pointer-events-none ">
         <Canvas camera={{ position: [0, 0, 10], fov: 50 }}>
           <ambientLight intensity={0.8} />
           <directionalLight position={[10, 10, 5]} intensity={1.5} />

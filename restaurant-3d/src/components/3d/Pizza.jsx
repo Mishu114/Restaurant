@@ -27,4 +27,5 @@ const Pizza = ({ visible }) => {
   );
 };
 
+useGLTF.preload("/models/pepperoni_pizza/scene.gltf");
 export default Pizza;

@@ -26,5 +26,6 @@ const IceCream = ({ visible }) => {
     </Float>
   );
 };
+useGLTF.preload("/models/pink_ice_cream/scene.gltf");
 
 export default IceCream;

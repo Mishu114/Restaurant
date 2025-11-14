@@ -2,7 +2,7 @@ import React from 'react';
 
 const ContactSection = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center">
+    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 to-slate-950">
       <div className="text-center text-white px-4 max-w-2xl w-full">
         <h2 className="text-4xl md:text-6xl font-bold mb-8">Contact Us</h2>
         <div className="bg-white bg-opacity-10 backdrop-blur-md p-6 md:p-8 rounded-2xl">

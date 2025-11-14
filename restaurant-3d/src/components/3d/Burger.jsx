@@ -27,4 +27,5 @@ const Burger = ({ visible }) => {
   );
 };
 
+useGLTF.preload("/models/burger/scene.gltf");
 export default Burger;
