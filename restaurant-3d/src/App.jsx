@@ -216,9 +216,9 @@ export default function App() {
   const [videoOpacity, setVideoOpacity] = useState(1);
 
   useEffect(() => {
-    // Auto-play video when component mounts
+    // Remove autoplay - video will be controlled by scroll
     if (videoRef.current) {
-      videoRef.current.play().catch(console.error);
+      videoRef.current.currentTime = 0;
     }
   }, []);
 
@@ -227,8 +227,20 @@ export default function App() {
       const scrollPosition = window.scrollY;
       const windowHeight = window.innerHeight;
       
-      // Video opacity control - fade out video before pizza section
+      // Video scroll control - sync video time with scroll position
       const videoEndPoint = windowHeight * 2.5; // End video halfway through offers section
+      if (videoRef.current && scrollPosition < videoEndPoint) {
+        const videoDuration = videoRef.current.duration || 10; // Fallback to 10 seconds if duration not loaded
+        const scrollProgress = Math.min(scrollPosition / videoEndPoint, 1); // 0 to 1
+        const targetTime = scrollProgress * videoDuration;
+        
+        // Update video time based on scroll position
+        if (Math.abs(videoRef.current.currentTime - targetTime) > 0.1) {
+          videoRef.current.currentTime = targetTime;
+        }
+      }
+      
+      // Video opacity control - fade out video before pizza section
       if (scrollPosition < videoEndPoint) {
         const fadeStart = windowHeight * 1.5; // Start fading after intro section
         if (scrollPosition < fadeStart) {
@@ -345,20 +357,18 @@ export default function App() {
         </Canvas>
       </div>
 
-      {/* Background Video */}
+      {/* Scroll-controlled Video */}
       <div 
-        className="fixed inset-0 z-5 pointer-events-none transition-opacity duration-1000"
+        className="fixed inset-0 z-5 pointer-events-none transition-opacity duration-300"
         style={{ opacity: videoOpacity }}
       >
         <video
           ref={videoRef}
           className="w-full h-full object-cover"
           src="/video/hero_section_vid.mp4"
-          autoPlay
-          loop
           muted
           playsInline
-          preload="auto"
+          preload="metadata"
         />
       </div>
 

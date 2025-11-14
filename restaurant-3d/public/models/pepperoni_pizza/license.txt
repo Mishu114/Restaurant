@@ -1,0 +1,11 @@
+Model Information:
+* title:	Pepperoni and Spinach Pizza
+* source:	https://sketchfab.com/3d-models/pepperoni-and-spinach-pizza-d9c6a775c0b2445a9c157140056a074c
+* author:	urbanmasque (https://sketchfab.com/urbanmasque)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Pepperoni and Spinach Pizza" (https://sketchfab.com/3d-models/pepperoni-and-spinach-pizza-d9c6a775c0b2445a9c157140056a074c) by urbanmasque (https://sketchfab.com/urbanmasque) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Pink Ice Cream Cone
+* source:	https://sketchfab.com/3d-models/pink-ice-cream-cone-5cd72e75c08c4565807e4f4a761810ab
+* author:	alterbotcreations (https://sketchfab.com/alterbotcreations)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Pink Ice Cream Cone" (https://sketchfab.com/3d-models/pink-ice-cream-cone-5cd72e75c08c4565807e4f4a761810ab) by alterbotcreations (https://sketchfab.com/alterbotcreations) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
