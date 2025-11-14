@@ -36,7 +36,7 @@ export default function App() {
         const scrollProgress = Math.min(scrollPosition / videoEndPoint, 1);
         const targetTime = scrollProgress * videoDuration;
         
-        if (Math.abs(videoRef.current.currentTime - targetTime) > 0.1) {
+        if (Math.abs(videoRef.current.currentTime - targetTime) > 0.05) {
           videoRef.current.currentTime = targetTime;
         }
       }
@@ -53,14 +53,16 @@ export default function App() {
       } else {
         setVideoOpacity(0);
       }
+
+      console.log(scrollPosition)
       
       // Section transitions
       const section1 = windowHeight * 0.5;
-      const section2 = windowHeight * 1.3;
-      const section3 = windowHeight * 2.1;
-      const section4 = windowHeight * 2.9;
-      const section5 = windowHeight * 3.7;
-      const section6 = windowHeight * 4.5;
+      const section2 = windowHeight * 0.6;
+      const section3 = windowHeight * 1.6;
+      const section4 = windowHeight * 2.6;
+      const section5 = windowHeight * 3.6;
+      const section6 = windowHeight * 4.6;
       
       let newColors = getSectionBgColor('intro');
       
@@ -142,12 +144,13 @@ export default function App() {
         style={{ opacity: videoOpacity }}
       >
         <video
-          ref={videoRef}
           className="w-full h-full object-cover"
           src="/video/hero_section_vid.mp4"
           muted
           playsInline
           preload="metadata"
+          autoPlay
+          loop={false}
         />
       </div>
 

@@ -2,6 +2,7 @@ import React from 'react';
 import Pizza from './Pizza';
 import Burger from './Burger';
 import IceCream from './IceCream';
+import { OrbitControls } from '@react-three/drei';
 
 const Scene = ({ currentSection }) => {
   return (

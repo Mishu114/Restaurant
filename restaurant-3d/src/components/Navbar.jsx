@@ -12,12 +12,12 @@ const Navbar = () => {
       const windowHeight = window.innerHeight;
       const scrollPosition = window.scrollY;
       
-      if (scrollPosition < windowHeight * 0.9) setActiveSection('intro');
-      else if (scrollPosition < windowHeight * 1.9) setActiveSection('offers');
-      else if (scrollPosition < windowHeight * 2.9) setActiveSection('about');
-      else if (scrollPosition < windowHeight * 3.9) setActiveSection('pizza');
-      else if (scrollPosition < windowHeight * 4.9) setActiveSection('burger');
-      else if (scrollPosition < windowHeight * 5.9) setActiveSection('dessert');
+      if (scrollPosition < windowHeight * 0.7) setActiveSection('intro');
+      else if (scrollPosition < windowHeight * 1.7) setActiveSection('offers');
+      else if (scrollPosition < windowHeight * 2.6) setActiveSection('about');
+      else if (scrollPosition < windowHeight * 3.6) setActiveSection('pizza');
+      else if (scrollPosition < windowHeight * 4.6) setActiveSection('burger');
+      else if (scrollPosition < windowHeight * 5.6) setActiveSection('dessert');
       else setActiveSection('contact');
     };
 
@@ -33,9 +33,9 @@ const Navbar = () => {
       case 'intro': scrollTo = 0; break;
       case 'offers': scrollTo = windowHeight * 1; break;
       case 'about': scrollTo = windowHeight * 2; break;
-      case 'pizza': scrollTo = windowHeight * 3; break;
-      case 'burger': scrollTo = windowHeight * 4; break;
-      case 'dessert': scrollTo = windowHeight * 5; break;
+      case 'pizza': scrollTo = windowHeight * 2.9; break;
+      case 'burger': scrollTo = windowHeight * 3.9; break;
+      case 'dessert': scrollTo = windowHeight * 4.9; break;
       case 'contact': scrollTo = windowHeight * 6; break;
       default: scrollTo = 0;
     }
